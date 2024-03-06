@@ -1,0 +1,182 @@
+body, html {
+    height: 100%;
+    color: white;
+    background-image: linear-gradient(to right, #535470, #313134);
+    background-size: cover ;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+#main-content {
+    width: 55%;
+}
+
+
+footer {
+    background-color: #0c0d11;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+
+}
+
+#about a {
+    text-decoration: none;
+    color: white;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+footer li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+header nav {
+
+    display: flex;
+    justify-content: space-between;
+    background-color: #010102;
+    font-size: 18px;
+    border-bottom: solid 3px #161921;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+    margin-left: 10px;
+}
+
+.nav_extra {
+    margin-left: auto;
+    padding: 20px;
+}
+
+#general-info {
+    padding-left: 70px;
+    padding-top: 500px;
+    font-size: 20px;
+    text-shadow: 2px 2px 4px #000000;
+    margin-bottom: 100px;
+}
+
+#detailed-info, #background-text {
+    padding-left: 70px;
+    font-size: 20px;
+}
+
+#detailed-info h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#details {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin-right: 30px;
+}
+
+#details p {
+    margin: 10px 0;
+}
+
+#background-text {
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin-right: 30px;
+    margin-top: 10px;
+}
+
+.favorite-btn {
+    background-color: red; /* Change to desired green color */
+    border: solid 3px transparent;
+    color: rgb(202, 201, 201);
+    font-size: 35px;
+    border-radius: 30px;
+    margin-left: 20px;
+    transition: background-color 1s ease;
+}
+
+.favorite-btn:hover {
+    color: #fff;
+}
+.default-btn{
+    background-color: rgb(24, 24, 24);
+    border: solid 3px transparent;
+    color: rgb(202, 201, 201);
+    font-size: 35px;
+    border-radius: 30px;
+    margin-left: 20px;
+    transition: background-color 1s ease;
+}
+.default-btn:hover {
+   color: #fff;
+}
+
+#comments {
+    margin-left: 70px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    margin-right: 30px;
+    margin-top: 8px;
+}
+
+#user-comment {
+    border: rgb(146, 145, 145) 1px solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#review {
+    background-color: #010102;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    width: calc(100% - 80px);
+    margin-right: 10px;
+}
+
+#send-comment {
+    text-decoration: none;
+    color: white;
+    position: relative;
+}
+
+#send_review {
+    font-size: 20px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 10px;
+}
+
+.comment-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}

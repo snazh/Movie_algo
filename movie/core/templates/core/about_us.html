@@ -1,0 +1,123 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block styles%}
+<style>
+    h1,h2 {
+      font-family: 'Garamond', serif;
+      color: white
+    }
+    #content {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      background-color: red;
+      width: 70%;
+      min-height: 100vh;
+      margin: 0 auto;
+      background: #232325;
+      box-shadow: 0 0 10px rgba(107, 107, 107, 0.8);
+      overflow: auto;
+    }
+
+    #content h2 {
+      border-bottom: 1px solid white;
+    }
+    .info {
+      color:white;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+      padding: 10px;
+      border-radius: 5px;
+    }
+    #content h1{
+      margin: 50px;
+      font-size: 40px;
+    }
+    .heading{
+      width: 70%;
+      margin-left: 70px;
+      margin-top: 20px;
+      font-size: 19px;
+    }
+    #team-info a{
+      font-size: 20px;
+      color:white;
+      text-decoration: none;
+    }
+    #team-info a:hover{
+      color:rgb(206, 206, 206);
+    }
+    #team ul{
+      list-style-type: none;
+    }
+    #team{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+    }
+
+</style>
+{%endblock%}
+{%block content%}
+<br>
+<div id="content">
+    <h1>Movie Match</h1>
+    <div id="about" class="heading">
+        <h2>About</h2>
+        <div class="info">
+            The site is designed to find people with similar preferences in movies, using this site you will quickly and
+            easily determine with a high probability the movie that you will like. Our algorithm is optimized to find
+            people with similar interests, rather than generating genre/movie viewing stories.
+        </div>
+    </div>
+    <div id="oppor" class="heading">
+        <h2>Opportunities</h2>
+        <div class="info">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut, quis, et quia, vero totam modi labore nam
+            repellendus mollitia voluptates hic maiores animi laborum dolores ipsum consectetur perferendis saepe illum.
+        </div>
+    </div>
+    <div id="team" class="heading">
+        <h2>Our team</h2>
+        <div id="team-info" class="info">
+            <a href="https://nuraliyev.com/author">
+                Shadiyar Tazhgurazov
+            </a>
+            <ul>
+                <li>CEO</li>
+            </ul>
+        </div>
+        <br>
+        <div id="team-info" class="info">
+            <a href="https://github.com/snazh">
+                Sanzhar Konysbayev
+            </a>
+            <ul>
+                <li>Chief developer</li>
+            </ul>
+        </div>
+        <br>
+
+        <br>
+        <div id="team-info" class="info">
+            <a href="https://github.com/jxterrr">
+                Adilet Satayev
+            </a>
+            <ul>
+                <li>Designer</li>
+            </ul>
+        </div>
+    </div>
+    <div id="contacts" class="heading">
+        <h2>Contacts</h2>
+        <div class="info">
+            <h3>Sanzhar Konysbayev</h3>
+            <ul>
+                <li>Phone number: +77750542376</li>
+                <li>Email: sanxius.kon@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+    <br>
+</div>
+<br>
+{%endblock%}

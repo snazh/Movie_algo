@@ -1,0 +1,102 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{data.title}}</title>
+
+    <link type="text/css" href="{% static 'core/css/movie_overview.css' %}" rel="stylesheet">
+
+    <script src="{% static 'core/js/script.js'%}"></script>
+
+
+</head>
+<body>
+<header>
+    <nav>
+        <a href="{% url 'core:main'%}">HOMEPAGE</a>
+        <a href="{% url 'core:trends'%}">POPULAR MOVIES</a>
+        <a href="{% url 'core:about_us'%}">ABOUT</a>
+        <a href="{{ request.user.userprofile.get_absolute_url }}">PROFILE</a>
+
+        <div class="nav_extra">
+            <a href="{% url 'users_management:logout' %}    ">Log out</a>
+        </div>
+    </nav>
+</header>
+<main>
+
+    <div id="main-content">
+        <div id="general-info">
+            <form method="POST">
+                {% csrf_token %}
+                <h1>{{ data.title }}
+
+                    <button class="{% if button_status %}favorite-btn{% else %}default-btn{% endif %}" name="add_to_favorite">&#10084;</button>
+
+                </h1>
+            </form>
+            <p>~{{ data.tagline }}</p>
+        </div>
+        <br>
+        <br>
+        <div id="detailed-info">
+            <h2>Detailed Information</h2>
+            <h3>{{ data.title }}</h3>
+            <div id="background-text">
+                <p>{{data.overview}}</p>
+            </div>
+            <div id="details">
+
+                <p><strong>Production Countries:</strong>
+                    {% for g in data.production_countries %}
+                    {{ g.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p><strong>Genres:</strong>
+                    {% for g in data.genres %}
+                    {{ g.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+                <p><strong>Run Time:</strong> {{ data.runtime }} minutes</p>
+                <p><strong>Release Date:</strong> {{ data.release_date }}</p>
+
+                <a href = {{data.homepage}}>Official website</a>
+            </div>
+        </div>
+        <section id="comments">
+            <h2>Comments</h2>
+            {%for comment in comments%}
+            <div id="user-comment">
+                <h3>{{comment.created_time}}</h3>
+                <h4>{{comment.user.username}}</h4>
+                <p>{{comment.content}}</p>
+                <!-- Other user comments -->
+            </div>
+            {%endfor%}
+            <br>
+            <form method="POST">
+                {% csrf_token %}
+                <div id="send-comment" class="comment-form">
+                    {{form.content}}
+
+                    <button id="send_review" name="add_comment" type = 'submit'>Send</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</main>
+
+
+<footer>
+    <div id="about">
+        <ul>
+            <li><a href="#">Terms of use</a></li>
+
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
+

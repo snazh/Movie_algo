@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{%block style%}
+<link type="text/css" href="{% static 'users/css/forms.css' %}" rel="stylesheet">
+{%endblock%}
+{% block content %}
+
+<div class="container rounded bg-dark mt-5 mb-5 neon-border">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                {%if user_profile.avatar %}
+                <img class="rounded-circle mt-5" width="150px" src="{{user_profile.avatar.url}}">
+                {%else%}
+                <img class="rounded-circle mt-5" width="150px" src="{% static 'users/img/default-avatar.jpg' %}">
+                {%endif%}
+                <span class="text-white">{{user_profile.user.username}}</span>
+                <span class="text-black-50">{{user_profile.user.email}}</span>
+            </div>
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right" style="color: #FFD300; font-weight: bold;">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <label class="labels" style="color: #00FFFF; font-weight: bold;">First Name</label>
+                        <p>{{user_profile.first_name}}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="labels" style="color: #00FFFF; font-weight: bold;">Last_name</label>
+                        <p>{{user_profile.last_name}}</p>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <label class="labels" style="color: #00FFFF; font-weight: bold;">Biography</label>
+                        <p>{{user_profile.bio}}</p>
+                    </div>
+
+                </div>
+
+                <div class="mt-5 text-center">
+                    <button class="glow-on-hover">
+                        <a href="{% url 'users:update_profile' %}">Alter Profile</a>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                {%for l in liked_posts%}
+                <p>{{l.post}}</p>
+                {%endfor%}
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+
+{% endblock %}

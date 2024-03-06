@@ -1,0 +1,134 @@
+{%extends 'core/base.html'%}
+{%load static%}
+{%block styles%}
+
+<style>
+    .button{
+       display: inline-block;
+       outline: 0;
+       border: 0;
+       cursor: pointer;
+       border-radius: 8px;
+       padding: 14px 24px 16px;
+       font-size: 18px;
+       font-weight: 700;
+       line-height: 1;
+       transition: transform 200ms,background 200ms;
+       background: transparent;
+       color: white;
+       box-shadow: 0 0 0 3px white inset;}
+    button:hover{
+       transform: translateY(-2px);
+                }
+
+
+    #content {
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;
+        min-height: 100vh;
+        margin: 0 auto;
+        background: #232325;
+        box-shadow: 0 0 10px rgba(107, 107, 107, 0.8);
+        overflow: auto;
+    }
+
+    .info {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+    }
+
+    #left-info{
+        width: 40%;
+        padding: 20px;
+    }
+    #right-info{
+        width: 60%;
+    }
+    #bottom-info {
+        width: 100%;
+    }
+    .info img {
+        border-radius: 8px;
+        border: #4a505e 3px solid;
+    }
+
+    .info input{
+        display: block;
+        margin-bottom: 20px;
+        background-color: transparent;
+        border:none;
+        font-size: 18px;
+        border-bottom: 1px;
+        border-radius: 8px;
+        padding: 10px;
+        width: 90%;
+        color: white;
+    }
+    .info textarea{
+        background-color: transparent;
+        font-size: 20px;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .info-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+    .info input::placeholder{
+        color:white
+    }
+    #confirm{
+        color: white;
+        font-size: large;
+    }
+    h3 {
+        color: white;
+    }
+
+
+
+
+
+</style>
+
+{%endblock%}
+{%block content%}
+<form method="POST">
+    {% csrf_token %}
+    <div id="content">
+        <div class="info" id="left-info">
+            <img src="{% if user_details.avatar %}{{user_details.avatar.url}}{% else %}{% static 'users_management/img/default-avatar.jpg' %}{% endif %}"
+                 alt="Profile Image" height="400px" width="400px">
+            {{form.avatar}}
+
+        </div>
+        <div class="info" id="right-info">
+            <h3>FIRST NAME</h3> {{form.first_name}}{{user_details.first_name}}
+            <hr>
+            <h3>LAST NAME</h3> {{form.last_name}}{{user_details.last_name}}
+            <hr>
+            <h3>EMAIL</h3>
+            <h3>{{ user.email}}</h3>
+            <hr>
+            <h3>ABOUT ME</h3>
+            {{form.bio}}{{user_details.bio}}
+            <hr>
+            <h3>My movies</h3>
+            <a href='{% url "core:user_movies"%}'>Link</a>
+            <br>
+            <br>
+
+            <button type="submit" class='button'>Edit profile</button>
+
+
+        </div>
+        <div class="info" id="bottom-info">
+
+        </div>
+    </div>
+</form>
+{%endblock%}
